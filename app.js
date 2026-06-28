@@ -145,4 +145,25 @@ async function cercaCocktail()
 		document.getElementById("risultati").innerHTML = document.getElementById("risultati").innerHTML + cardHTML;
 	}
 }
-      
+
+// Associa il click del bottone e il tasto Invio all'esecuzione della ricerca
+document.addEventListener('DOMContentLoaded', function() {
+	var btn = document.getElementById('execute-btn');
+	if (btn) {
+		btn.addEventListener('click', function(e) {
+			e.preventDefault();
+			cercaCocktail();
+		});
+	}
+
+	var input = document.getElementById('inputNome');
+	if (input) {
+		// Invia la ricerca premendo Invio
+		input.addEventListener('keydown', function(e) {
+			if (e.key === 'Enter') {
+				e.preventDefault();
+				cercaCocktail();
+			}
+		});
+	}
+});
